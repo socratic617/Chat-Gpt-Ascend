@@ -5,7 +5,7 @@ import { NextUIProvider } from '@nextui-org/react'
 import App from './App.jsx'
 import './index.css'
 
-window.global = globalThis;
+window.global = globalThis; //Don't know if I should add this to App.jsx instead...
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
