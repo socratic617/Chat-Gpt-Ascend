@@ -5,7 +5,25 @@
   text-align: center;
 }
 
-.logo {
+body {
+  margin: 0;
+  display: flex;
+   /* place-items: center;  */
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+body.light-mode {
+  background-color: #fff;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+body.dark-mode {
+  background-color: #1a1919;
+  color: #999;
+}
+
+/* .logo {
   height: 6em;
   padding: 1.5em;
   will-change: filter;
@@ -39,4 +57,4 @@
 
 .read-the-docs {
   color: #888;
-}
+} */
