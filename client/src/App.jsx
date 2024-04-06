@@ -15,7 +15,7 @@ export default function App() {
 
   return (
     <main className={`${darkMode ? darkMode.classNameDark : darkMode.classNameLight }`}>
-      <ThemeSwitcher />
+      <ThemeSwitcher darkMode={darkMode} />
       <h2 className="text-3xl font-bold center underline">
         Chat GPT Ascend
       </h2>

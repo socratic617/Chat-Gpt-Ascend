@@ -1,13 +1,10 @@
-import useDarkMode from "use-dark-mode";
 import { Button } from "@material-tailwind/react";
 import { MoonIconFilled, SunIconFilled, SunIconEmpty, MoonIconEmpty } from "./DarkModeSVGs";
 
 
-const ThemeSwitcher = () => {
-  const darkMode = useDarkMode(false);
+const ThemeSwitcher = ({ darkMode }) => {
 
-  console.log(darkMode)
-
+  // console.log(darkMode)
 
   return (
     <>
