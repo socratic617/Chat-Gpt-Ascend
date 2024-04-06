@@ -19,7 +19,7 @@ const ThemeSwitcher = ({ darkMode }) => {
           </div>
            :
            <div className="flex w-max gap-4">
-           <Button  variant="text" className="rounded-full" type="button" onClick={darkMode.disable}>
+           <Button variant="text" className="rounded-full" type="button" onClick={darkMode.disable}>
              <SunIconEmpty />
            </Button>
            <Button variant="text" className="rounded-full" color="black" type="button" onClick={darkMode.enable}>
