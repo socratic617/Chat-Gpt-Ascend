@@ -62,7 +62,7 @@ export default function ChatbotContainer() {
 
   return (
     <div className="flex flex-col w-full">
-      <Card className="max-w-full pl-20 pr-20 ">
+      <Card className="max-w-full pl-80 pr-80 ">
         <User
           className="pb-5 pt-5"
           name="RC Student"
@@ -74,16 +74,18 @@ export default function ChatbotContainer() {
         <div className="flex flex-col gap-4">
           {/* Display messages */}
           {messages.map((message, index) => (
-            <div key={index}>
-              <Input
-                isReadOnly
-                type={message.author === "RC Student" ? "RC Student Output" : "CHATGPT Output"}
-                label={message.author}
-                variant="bordered"
-                value={message.content}
-                color={message.author === "RC Student" ? "secondary" : "primary"}
-              />
-              <p className="text-xs text-gray-500 text-right">{message.timestamp.toLocaleString()}</p>
+            <div key={index} className="message-container">
+              <div className={message.author === "Chatbot" ? "chatbot-message" : "user-message"}>
+                <Input
+                  isReadOnly
+                  type={message.author === "RC Student" ? "RC Student Output" : "CHATGPT Output"}
+                  label={message.author}
+                  variant="bordered"
+                  value={message.content}
+                  color={message.author === "RC Student" ? "secondary" : "primary"}
+                />
+              </div>
+              <p className={message.author === "Chatbot" ? "text-xs text-gray-500 text-left" : "text-xs text-gray-500 text-right"}>{message.timestamp.toLocaleString()}</p>
             </div>
           ))}
           {/* User input */}
