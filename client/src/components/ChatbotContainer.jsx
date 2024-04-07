@@ -3,8 +3,6 @@ import { Input, Button, Card, User } from "@nextui-org/react";
 
 export default function ChatbotContainer() {
   const [messages, setMessages] = useState([
-
-    //Dummy Data Test: Array of messages 
     {
       author: "RC Student",
       content: "What tools can I use to debug?",
@@ -48,15 +46,17 @@ export default function ChatbotContainer() {
       content: inputMessage,
       timestamp: new Date()
     };
-    setMessages([...messages, newMessage]);
-    // Add logic here to get the chatbot response based on the input message
-    // Demonstration purposes, I'm just adding a dummy response
+
+    setMessages(prevMessages => [...prevMessages, newMessage]);
+
+    // Logic to get the chatbot response based on the input message
+    // For demonstration purposes, I'm just adding a dummy response
     const dummyResponse = {
       author: "Chatbot",
       content: "Dummy Response",
       timestamp: new Date()
     };
-    setMessages([...messages, dummyResponse]);
+    setMessages(prevMessages => [...prevMessages, dummyResponse]); // Add chatbot response after user message
     setInputMessage("");
   };
 
@@ -105,3 +105,4 @@ export default function ChatbotContainer() {
     </div>
   );
 }
+
