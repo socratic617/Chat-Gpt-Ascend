@@ -4,6 +4,7 @@ import useDarkMode from "use-dark-mode";
 import './App.css'
 import ThemeSwitcher from "./components/ThemeSwitcher";
 import ChatbotContainer from "./components/ChatbotContainer";
+import UserCard  from "./components/UserCard";
 
 
 
@@ -24,6 +25,7 @@ export default function App() {
         Chat GPT Ascend
       </h2>
       <ChatbotContainer darkMode={darkMode} />
+      <UserCard darkMode={darkMode}/>
     </main>
   );
 }
