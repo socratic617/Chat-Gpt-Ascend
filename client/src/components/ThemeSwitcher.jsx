@@ -10,10 +10,10 @@ const ThemeSwitcher = ({ darkMode }) => {
     <>
         {darkMode.value ?
           <div className="flex w-max gap-4">
-            <Button variant="text" className="rounded-full" type="button" onClick={darkMode.disable}>
+            <Button variant="text" className="rounded-full" type="button" onClick={darkMode.disable} style={{ backgroundColor: "black" }}>
               <SunIconFilled />
             </Button>
-            <Button variant="text" className="rounded-full" type="button" onClick={darkMode.enable}>
+            <Button variant="text" className="rounded-full" type="button" onClick={darkMode.enable} style={{ backgroundColor: "black" }}> 
               <MoonIconFilled />
             </Button>
           </div>
@@ -22,7 +22,7 @@ const ThemeSwitcher = ({ darkMode }) => {
            <Button variant="text" className="rounded-full" type="button" onClick={darkMode.disable}>
              <SunIconEmpty />
            </Button>
-           <Button variant="text" className="rounded-full" color="black" type="button" onClick={darkMode.enable}>
+           <Button variant="text" className="rounded-full" color="black" type="button" onClick={darkMode.enable} >
              <MoonIconEmpty />
            </Button>
          </div>
