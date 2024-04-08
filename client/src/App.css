@@ -15,3 +15,51 @@ body.dark-mode {
   background-color: #1a1919;
   color: #999;
 }
+
+/* creating user card compoent */
+.user-card {
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.user-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.user-info {
+  flex-grow: 1;
+}
+
+.user-name {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #525252;
+}
+
+.user-description {
+  margin: 0;
+  font-size: 1rem;
+  color: #666;
+}
+
+@media only screen and (max-width: 768px) {
+  .user-card {
+    flex-direction: column;
+   
+  }
+
+  .user-avatar {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .user-info {
+    text-align: center;
+  }
+}
