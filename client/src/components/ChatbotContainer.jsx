@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Input, Button, Card, User, Textarea } from "@nextui-org/react";
 
-export default function ChatbotContainer() {
+
+export default function ChatbotContainer( { darkMode } ) {
   const [messages, setMessages] = useState([
     {
       author: "RC Student",
@@ -80,7 +81,7 @@ export default function ChatbotContainer() {
   };
 
   return (
-    <div className="dark">
+    <div className={`${darkMode.value ? "dark" : "light" }`}>
       <Card className="pl-40 pr-40 mt-2">
         <User
           className="pb-5 pt-8"
