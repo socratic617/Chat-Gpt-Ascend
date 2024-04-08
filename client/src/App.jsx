@@ -7,6 +7,7 @@ import ThemeSwitcher from "./components/ThemeSwitcher";
 
 
 
+
 export default function App() {
 
   const darkMode = useDarkMode(false, {
@@ -22,9 +23,6 @@ export default function App() {
         Chat GPT Ascend
       </h2>
       <ChatbotContainer />
-      <Button radius="full" className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg">
-       Test NextUI Component Button
-      </Button>
     </main>
   );
 }
