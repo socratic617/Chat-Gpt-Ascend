@@ -17,17 +17,12 @@
   -moz-osx-font-smoothing: grayscale;
 } 
 
-.message-container {
-  overflow-x: auto; /* Enable horizontal scrolling for the entire message container */
+.user-message {
+  margin-left: 50%; /* Align user messages to the right */
 }
 
-.user-message,
 .chatbot-message {
-  margin-bottom: 1rem; /* Add space between messages */
-  max-width: 100%; /* Limit message width */
-  overflow-x: auto; /* Enable vertical scrolling */
-  max-height: 10rem; /* Limit message height */
-  white-space: nowrap; /* Prevent message content from wrapping */
+  margin-right: 50%; /* Align chatbot messages to the left */
 }
 
 @media (prefers-color-scheme: light) {
