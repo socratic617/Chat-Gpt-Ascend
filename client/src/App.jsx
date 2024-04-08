@@ -1,8 +1,10 @@
 import React from "react";
+import ChatbotContainer from "./components/ChatbotContainer";
 import { Button } from "@nextui-org/react";
 import useDarkMode from "use-dark-mode";
 import './App.css'
 import ThemeSwitcher from "./components/ThemeSwitcher";
+
 
 
 
@@ -20,12 +22,7 @@ export default function App() {
       <h2 className="text-3xl font-bold center underline">
         Chat GPT Ascend
       </h2>
-      <Button radius="full" className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg">
-       Test NextUI Component Button
-      </Button>
+      <ChatbotContainer />
     </main>
   );
 }
-
-
-
