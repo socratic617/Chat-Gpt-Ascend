@@ -31,11 +31,18 @@ export const ChatHistoryContainer = ({ darkMode }) => {
         },
         {
             summary: "previous chat conversation",
-            date: randomDate(new Date(2024, 0, 1), new Date()),
+            date: new Date(new Date().setDate(new Date().getDate()-1))
         },
     ])
 
     console.log("message history array", messageHistory)
+
+    // grab random date in the past month 
+    function randomDate(start, end) {
+        return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()))
+    }
+
+    //Calculate 7 days from the current date 
 
     function sevenDays() {
         let date = new Date();
@@ -43,9 +50,15 @@ export const ChatHistoryContainer = ({ darkMode }) => {
         return date;
     }
 
+    //Assign to variable 
+
     const pastWeek = sevenDays()
 
     console.log("7 days ago", pastWeek)
+
+
+
+    //Calculate one day  from the current date 
 
     function oneDay() {
         let date = new Date();
@@ -53,9 +66,13 @@ export const ChatHistoryContainer = ({ darkMode }) => {
         return date;
     }
 
+    //Assign to variable 
+
     const yesterday = oneDay()
 
-    console.log("yesterday", yesterday)
+    // console.log("yesterday", yesterday)
+
+    //Calculate 30 days from the current date 
 
     function thirtyDays() {
         let date = new Date();
@@ -63,17 +80,30 @@ export const ChatHistoryContainer = ({ darkMode }) => {
         return date;
     }
 
+    //Assign to variable 
+
     const pastMonth = thirtyDays()
 
-    console.log("30 Days Ago", pastMonth)
+    // console.log("30 Days Ago", pastMonth)
 
+    function betweenDays (startDate, checkDate) {
+        const start = startDate.getTime()
+        const end = Date.now()
+        const check = checkDate.getTime()
 
-
-
-    function randomDate(start, end) {
-        return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()))
+        if((start <= check) && (end > check)){
+            return true
+        } else {
+            return false
+        }
+        
     }
 
+    const testDate = messageHistory[6].date
+
+    console.log('test date', testDate)
+
+    console.log("check date test", betweenDays(pastWeek, testDate) )
 
 
     return (
