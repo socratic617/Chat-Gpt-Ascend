@@ -86,6 +86,8 @@ export const ChatHistoryContainer = ({ darkMode }) => {
 
     // console.log("30 Days Ago", pastMonth)
 
+    //check if date of message history is between today's date and another date
+
     function betweenDays (startDate, checkDate) {
         const start = startDate.getTime()
         const end = Date.now()
@@ -99,11 +101,6 @@ export const ChatHistoryContainer = ({ darkMode }) => {
         
     }
 
-    const testDate = messageHistory[6].date
-
-    console.log('test date', testDate)
-
-    console.log("check date test", betweenDays(pastWeek, testDate) )
 
 
     return (
