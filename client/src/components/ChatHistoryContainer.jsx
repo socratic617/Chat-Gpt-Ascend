@@ -35,7 +35,39 @@ export const ChatHistoryContainer = ({ darkMode }) => {
         },
     ])
 
-    console.log(messageHistory)
+    console.log("message history array", messageHistory)
+
+    function sevenDays() {
+        let date = new Date();
+        date.setDate(date.getDate() - 7);
+        return date;
+    }
+
+    const pastWeek = sevenDays()
+
+    console.log("7 days ago", pastWeek)
+
+    function oneDay() {
+        let date = new Date();
+        date.setDate(date.getDate() - 1);
+        return date;
+    }
+
+    const yesterday = oneDay()
+
+    console.log("yesterday", yesterday)
+
+    function thirtyDays() {
+        let date = new Date();
+        date.setDate(date.getDate() - 30);
+        return date;
+    }
+
+    const pastMonth = thirtyDays()
+
+    console.log("30 Days Ago", pastMonth)
+
+
 
 
     function randomDate(start, end) {
@@ -45,10 +77,12 @@ export const ChatHistoryContainer = ({ darkMode }) => {
 
 
     return (
-        <div className={`${darkMode.value ? "dark" : "light"}`}>
-            <Card className="pl-40 pr-40 mt-2">
-                Card
-            </Card>
+        <div className="col-span-1">
+            <div className={`${darkMode.value ? "dark" : "light"}`}>
+                <Card className="pl-40 pr-40 mt-2">
+                    Card
+                </Card>
+            </div>
         </div>
     )
 }
