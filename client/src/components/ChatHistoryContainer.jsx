@@ -6,30 +6,37 @@ export const ChatHistoryContainer = ({ darkMode }) => {
 
     const [messageHistory, setMessageHistory] = useState([
         {
+            id: 1,
             summary: "previous chat conversation",
             date: randomDate(new Date(2024, 0, 1), new Date()),
         },
         {
+            id: 2,
             summary: "previous chat conversation",
             date: randomDate(new Date(2024, 0, 1), new Date()),
         },
         {
+            id: 3,
             summary: "previous chat conversation",
             date: randomDate(new Date(2024, 0, 1), new Date()),
         },
         {
+            id: 4,
             summary: "previous chat conversation",
             date: randomDate(new Date(2024, 0, 1), new Date()),
         },
         {
+            id: 5,
             summary: "previous chat conversation",
             date: randomDate(new Date(2024, 0, 1), new Date()),
         },
         {
+            id: 6,
             summary: "previous chat conversation",
             date: randomDate(new Date(2024, 0, 1), new Date()),
         },
         {
+            id: 7,
             summary: "previous chat conversation",
             date: new Date(new Date().setDate(new Date().getDate()-1))
         },
@@ -106,9 +113,11 @@ export const ChatHistoryContainer = ({ darkMode }) => {
     return (
         <div className="col-span-1">
             <div className={`${darkMode.value ? "dark" : "light"}`}>
-                <Card className="pl-40 pr-40 mt-2">
-                    Card
-                </Card>
+                {messageHistory.map(message => {
+                    if(betweenDays(pastWeek, message.date)){
+                        return <Card key={message.id}>{message.summary} </Card>
+                    }
+                })}
             </div>
         </div>
     )
