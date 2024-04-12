@@ -1,6 +1,7 @@
-import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/react";
+import { Card, CardHeader, CardBody, CardFooter, Image, Divider } from "@nextui-org/react";
 import { useEffect, useState } from "react";
-
+import rclogo from '../assets/skull.png'
+import write from '../assets/write_icon.svg'
 
 export const ChatHistoryContainer = ({ darkMode }) => {
 
@@ -167,46 +168,104 @@ export const ChatHistoryContainer = ({ darkMode }) => {
     return (
         <div className="col-span-1">
             <div className={`${darkMode.value ? "dark" : "light"}`}>
-                <div>
-                    <h4>Today</h4>
-                    {messageHistory.map(message => {
-                        if ((today == message.date.getTime())) {
-                            return <Card key={message.id}>{message.summary} </Card>
-                        }
-                    })}
-                </div>
-                <div>
-                    <h4>Yesterday</h4>
-                    {messageHistory.map(message => {
-                        if (betweenDays(yesterday, message.date)) {
-                            return <Card key={message.id}>{message.summary} </Card>
-                        }
-                    })}
-                </div>
-                <div>
-                    <h4>Past 7 Days</h4>
-                    {messageHistory.map(message => {
-                        if (betweenDays(pastWeek, message.date)) {
-                            return <Card key={message.id}>{message.summary} </Card>
-                        }
-                    })}
-                </div>
-                <div>
-                    <h4>Past 30 Days</h4>
-                    {messageHistory.map(message => {
-                        if (betweenDays(pastMonth, message.date)) {
-                            return <Card key={message.id}>{message.summary} </Card>
-                        }
-                    })}
-                </div>
-                <div>
-                    <h4>Past 90 Days</h4>
-                    {messageHistory.map(message => {
-                        if (betweenDays(pastThreeMonths, message.date) === true) {
-                            return <Card key={message.id}>{message.summary} </Card>
-                        }
-                    })}
-                </div>
+                <Card className="mt-2 chat-history">
+                    <CardHeader className="flex gap-3 w-full">
+                        <Image
+                            alt="nextui logo"
+                            height={30}
+                            radius="sm"
+                            src={rclogo}
+                            width={30}
+                        />
+                        <div className="flex flex-col w-2/3 text-left">
+                            <h3>New Chat</h3>
+                        </div>
+                        <Image
+                            alt="nextui logo"
+                            height={20}
+                            radius="sm"
+                            src={write}
+                            width={20}
+                        />
+                    </CardHeader>
+                    <Divider />
+                    <CardBody>
+                        <div>
+                            <h4>Today</h4>
+                            {messageHistory.map(message => {
+                                if ((today == message.date.getTime())) {
+                                    return <Card
+                                        key={message.id}
+                                    >
+                                        <CardBody>
+                                            {message.summary}
+                                        </CardBody>
+                                    </Card>
+                                }
+                            })}
+                        </div>
+                        <div>
+                            <h4>Yesterday</h4>
+                            {messageHistory.map(message => {
+                                if (betweenDays(yesterday, message.date)) {
+                                    return <Card
+                                        key={message.id}
+                                    >
+                                        <CardBody>
+                                            {message.summary}
+                                        </CardBody>
+                                    </Card>
+                                }
+                            })}
+                        </div>
+                        <div>
+                            <div>
+                                <h4>Past 7 Days</h4>
+                            </div>
+                            <div>
+                            {messageHistory.map(message => {
+                                if (betweenDays(pastWeek, message.date)) {
+                                    return <Card
+                                        key={message.id}
+                                    >
+                                        <CardBody>
+                                            {message.summary}
+                                        </CardBody>
+                                    </Card>
+                                }
+                            })}
+                            </div>
+                        </div>
+                        <div>
+                            <h4>Past 30 Days</h4>
+                            {messageHistory.map(message => {
+                                if (betweenDays(pastMonth, message.date)) {
+                                    return <Card
+                                        key={message.id}
+                                    >
+                                        <CardBody>
+                                            {message.summary}
+                                        </CardBody>
+                                    </Card>
+                                }
+                            })}
+                        </div>
+                        <div>
+                            <h4>Past 90 Days</h4>
+                            {messageHistory.map(message => {
+                                if (betweenDays(pastThreeMonths, message.date) === true) {
+                                    return <Card
+                                        key={message.id}
+                                    >
+                                        <CardBody>
+                                            {message.summary}
+                                        </CardBody>
+                                    </Card>
+                                }
+                            })}
+                        </div>
+                    </CardBody>
+                </Card>
             </div>
         </div>
     )
