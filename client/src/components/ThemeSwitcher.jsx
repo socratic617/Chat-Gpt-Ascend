@@ -12,7 +12,7 @@ const ThemeSwitcher = ({ darkMode }) => {
         <div className="flex w-max gap-4">
             <Button
               variant="text"
-              className="rounded-full border-solid  border-2	border-yellow-200"
+              className="rounded-full border-solid border-2	border-slate-700"
               type="button"
               onClick={darkMode.disable}
             >
