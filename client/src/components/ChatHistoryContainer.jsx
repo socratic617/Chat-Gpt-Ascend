@@ -181,7 +181,6 @@ export const ChatHistoryContainer = ({ darkMode }) => {
                         <div className="flex flex-col w-2/3 text-left">
                             <h3>New Chat</h3>
                         </div>
-                        {darkMode.value ?
                             <Image
                                 alt="nextui logo"
                                 height={20}
@@ -191,15 +190,6 @@ export const ChatHistoryContainer = ({ darkMode }) => {
                                 pagecolor="#ffffff"
                                 bordercolor="#ffffff"
                             />
-                            :
-                            <Image
-                                alt="nextui logo"
-                                height={20}
-                                radius="sm"
-                                src={write}
-                                width={20}
-                            />
-                        }
                     </CardHeader>
                     <Divider />
                     <CardBody>
@@ -211,9 +201,11 @@ export const ChatHistoryContainer = ({ darkMode }) => {
                                         className="m-2 border-1 rounded-2xl border-slate-700"
                                         key={message.id}
                                     >
-                                        <CardBody>
-                                            {message.summary}
-                                        </CardBody>
+                                        <a href="#">
+                                            <p className="p-2">
+                                                {message.summary}
+                                            </p>
+                                        </a>
                                     </div>
                                 }
                             })}
@@ -226,9 +218,11 @@ export const ChatHistoryContainer = ({ darkMode }) => {
                                         className="m-2 border-1 rounded-2xl border-slate-700"
                                         key={message.id}
                                     >
-                                        <CardBody>
-                                            {message.summary}
-                                        </CardBody>
+                                        <a href="#">
+                                            <p className="p-2">
+                                                {message.summary}
+                                            </p>
+                                        </a>
                                     </div>
                                 }
                             })}
@@ -244,9 +238,11 @@ export const ChatHistoryContainer = ({ darkMode }) => {
                                             className="m-2 border-1 rounded-2xl border-slate-700"
                                             key={message.id}
                                         >
-                                            <CardBody>
-                                                {message.summary}
-                                            </CardBody>
+                                            <a href="#">
+                                                <p className="p-2">
+                                                    {message.summary}
+                                                </p>
+                                            </a>
                                         </div>
                                     }
                                 })}
@@ -260,9 +256,11 @@ export const ChatHistoryContainer = ({ darkMode }) => {
                                         className="m-2 border-1 rounded-2xl border-slate-700"
                                         key={message.id}
                                     >
-                                        <CardBody>
-                                            {message.summary}
-                                        </CardBody>
+                                        <a href="#">
+                                            <p className="p-2">
+                                                {message.summary}
+                                            </p>
+                                        </a>
                                     </div>
                                 }
                             })}
@@ -275,9 +273,11 @@ export const ChatHistoryContainer = ({ darkMode }) => {
                                         className="m-2 border-1 rounded-2xl border-slate-700"
                                         key={message.id}
                                     >
-                                        <CardBody>
-                                            {message.summary}
-                                        </CardBody>
+                                        <a href="#">
+                                            <p className="p-2">
+                                                {message.summary}
+                                            </p>
+                                        </a>
                                     </div>
                                 }
                             })}
@@ -286,7 +286,7 @@ export const ChatHistoryContainer = ({ darkMode }) => {
                     <Divider />
                     <CardHeader className="flex gap-3 w-full">
                         <User
-                            className="flex flex-row w-2/3 text-left"
+                            className="flex flex-row w-4/5 text-left"
                             name="RC Student"
                             description="Software Engineer"
                             avatarProps={{
