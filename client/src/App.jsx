@@ -8,8 +8,6 @@ import { ChatHistoryContainer } from "./components/ChatHistoryContainer";
 
 
 
-
-
 export default function App() {
 
   const darkMode = useDarkMode(false, {
@@ -27,8 +25,9 @@ export default function App() {
       <div className="grid grid-cols-4 gap-4 ">
       <ChatHistoryContainer darkMode={darkMode}/>
       <ChatbotContainer  darkMode={darkMode} />
+    
       </div>
-
+   
     </main>
   );
 }
