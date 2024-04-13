@@ -8,6 +8,7 @@ const ThemeSwitcher = ({ darkMode }) => {
 
   return (
     <>
+    <div className="flex w-full justify-center items-center mb-2 mt-2">
       {darkMode.value ?
         <div className="flex w-max gap-4">
             <Button
@@ -48,6 +49,7 @@ const ThemeSwitcher = ({ darkMode }) => {
           </Button>
         </div>
       }
+      </div>
     </>
   );
 };
