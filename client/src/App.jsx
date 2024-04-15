@@ -14,8 +14,6 @@ export default function App() {
     global: window // Just pass this as a config option
   });
 
-  console.log(darkMode)
-
   return (
     <main className={`${darkMode.value ? "dark" : "light"}`}>
       <ThemeSwitcher darkMode={darkMode} />
