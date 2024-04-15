@@ -19,7 +19,7 @@ export default function App() {
   console.log(darkMode)
 
   return (
-    <main className={`${darkMode.value ? "dark" : "light"}`}>
+    <div className={`${darkMode.value ? "dark" : "light"}`}>
        <h2 className="text-3xl font-bold center underline p-7">
         Chat GPT Ascend
       </h2>
@@ -29,6 +29,6 @@ export default function App() {
       <ChatbotContainer  darkMode={darkMode} />
       </div>
 
-    </main>
+    </div>
   );
 }
