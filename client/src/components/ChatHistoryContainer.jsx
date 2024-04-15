@@ -2,6 +2,8 @@ import { Card, CardHeader, CardBody, CardFooter, Image, Divider } from "@nextui-
 import { useEffect, useState } from "react";
 import rclogo from '../assets/skull.png'
 import write from '../assets/write_icon.svg'
+import UserCard from './UserCard'
+
 
 export const ChatHistoryContainer = ({ darkMode }) => {
 
@@ -265,8 +267,15 @@ export const ChatHistoryContainer = ({ darkMode }) => {
                             })}
                         </div>
                     </CardBody>
+                    <UserCard  
+      imgUser="https://i.pravatar.cc/150?u=a04258114e29026702d"
+      name="RC Student"/>
                 </Card>
+                
+             
+              
             </div>
+           
         </div>
     )
 }
