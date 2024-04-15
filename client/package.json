@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "test": "vitest",
     "coverage": "vitest run --coverage",
-    "start":"npm run dev"
+    "start":"npm install --omit=dev && npm run dev"
   },
   "dependencies": {
     "@material-tailwind/react": "^2.1.9",
