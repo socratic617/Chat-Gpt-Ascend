@@ -1,7 +1,8 @@
-import { Card, CardHeader, CardBody, CardFooter, Image, Divider } from "@nextui-org/react";
+import { Card, CardHeader, CardBody, CardFooter, Image, Divider, User } from "@nextui-org/react";
 import { useEffect, useState } from "react";
 import rclogo from '../assets/skull.png'
 import write from '../assets/write_icon.svg'
+import settings from '../assets/settings_icon.svg'
 import UserCard from './UserCard'
 
 
@@ -182,91 +183,127 @@ export const ChatHistoryContainer = ({ darkMode }) => {
                         <div className="flex flex-col w-2/3 text-left">
                             <h3>New Chat</h3>
                         </div>
-                        <Image
-                            alt="nextui logo"
-                            height={20}
-                            radius="sm"
-                            src={write}
-                            width={20}
-                        />
+                            <Image
+                                alt="nextui logo"
+                                height={20}
+                                radius="sm"
+                                src={write}
+                                width={20}
+                                pagecolor="#ffffff"
+                                bordercolor="#ffffff"
+                            />
                     </CardHeader>
                     <Divider />
                     <CardBody>
-                        <div>
+                        <div className="m-2">
                             <h4>Today</h4>
                             {messageHistory.map(message => {
                                 if ((today == message.date.getTime())) {
-                                    return <Card
+                                    return <div
+                                        className="m-2 border-1 rounded-2xl border-slate-700"
                                         key={message.id}
                                     >
-                                        <CardBody>
-                                            {message.summary}
-                                        </CardBody>
-                                    </Card>
+                                        <a href="#">
+                                            <p className="p-2">
+                                                {message.summary}
+                                            </p>
+                                        </a>
+                                    </div>
                                 }
                             })}
                         </div>
-                        <div>
+                        <div className="m-2">
                             <h4>Yesterday</h4>
                             {messageHistory.map(message => {
                                 if (betweenDays(yesterday, message.date)) {
-                                    return <Card
+                                    return <div
+                                        className="m-2 border-1 rounded-2xl border-slate-700"
                                         key={message.id}
                                     >
-                                        <CardBody>
-                                            {message.summary}
-                                        </CardBody>
-                                    </Card>
+                                        <a href="#">
+                                            <p className="p-2">
+                                                {message.summary}
+                                            </p>
+                                        </a>
+                                    </div>
                                 }
                             })}
                         </div>
-                        <div>
+                        <div className="m-2">
                             <div>
                                 <h4>Past 7 Days</h4>
                             </div>
                             <div>
-                            {messageHistory.map(message => {
-                                if (betweenDays(pastWeek, message.date)) {
-                                    return <Card
-                                        key={message.id}
-                                    >
-                                        <CardBody>
-                                            {message.summary}
-                                        </CardBody>
-                                    </Card>
-                                }
-                            })}
+                                {messageHistory.map(message => {
+                                    if (betweenDays(pastWeek, message.date)) {
+                                        return <div
+                                            className="m-2 border-1 rounded-2xl border-slate-700"
+                                            key={message.id}
+                                        >
+                                            <a href="#">
+                                                <p className="p-2">
+                                                    {message.summary}
+                                                </p>
+                                            </a>
+                                        </div>
+                                    }
+                                })}
                             </div>
                         </div>
-                        <div>
+                        <div className="m-2">
                             <h4>Past 30 Days</h4>
                             {messageHistory.map(message => {
                                 if (betweenDays(pastMonth, message.date)) {
-                                    return <Card
+                                    return <div
+                                        className="m-2 border-1 rounded-2xl border-slate-700"
                                         key={message.id}
                                     >
-                                        <CardBody>
-                                            {message.summary}
-                                        </CardBody>
-                                    </Card>
+                                        <a href="#">
+                                            <p className="p-2">
+                                                {message.summary}
+                                            </p>
+                                        </a>
+                                    </div>
                                 }
                             })}
                         </div>
-                        <div>
+                        <div className="m-2">
                             <h4>Past 90 Days</h4>
                             {messageHistory.map(message => {
                                 if (betweenDays(pastThreeMonths, message.date) === true) {
-                                    return <Card
+                                    return <div
+                                        className="m-2 border-1 rounded-2xl border-slate-700"
                                         key={message.id}
                                     >
-                                        <CardBody>
-                                            {message.summary}
-                                        </CardBody>
-                                    </Card>
+                                        <a href="#">
+                                            <p className="p-2">
+                                                {message.summary}
+                                            </p>
+                                        </a>
+                                    </div>
                                 }
                             })}
                         </div>
                     </CardBody>
+                    <Divider />
+                    <CardHeader className="flex gap-3 w-full">
+                        <User
+                            className="flex flex-row w-4/5 text-left"
+                            name="RC Student"
+                            description="Software Engineer"
+                            avatarProps={{
+                                src: "https://i.pravatar.cc/150?u=a04258114e29026702d"
+                            }}
+                        />
+                        <Image
+                            alt="nextui logo"
+                            height={20}
+                            radius="sm"
+                            src={settings}
+                            width={20}
+                        />
+
+                    </CardHeader>
                     <UserCard  
       imgUser="https://i.pravatar.cc/150?u=a04258114e29026702d"
       name="RC Student"/>
