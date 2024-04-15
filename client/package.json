@@ -9,7 +9,8 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "test": "vitest",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "start":"npm run dev"
   },
   "dependencies": {
     "@material-tailwind/react": "^2.1.9",
@@ -20,6 +21,7 @@
     "use-dark-mode": "^2.3.1"
   },
   "devDependencies": {
+    "@testing-library/react": "^14.3.0",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@vitejs/plugin-react": "^4.2.1",

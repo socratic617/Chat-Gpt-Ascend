@@ -2,6 +2,11 @@ import React from 'react';
 import { Textarea, Button } from '@nextui-org/react';
 
 export default function UserInput({ inputMessage, handleInputChange, handleSubmit}) {
+    const buttonStyling = {
+        background: "rgb(237, 28, 36)",
+        fontWeight: "bold",
+        textTransform: "uppercase"
+    }
     return (
         <div>
             <Textarea
@@ -15,6 +20,7 @@ export default function UserInput({ inputMessage, handleInputChange, handleSubmi
               variant="faded"  
             />
             <Button
+                style={buttonStyling}
                 fullWidth
                 className="mb-10 mt-5"
                 color="primary"

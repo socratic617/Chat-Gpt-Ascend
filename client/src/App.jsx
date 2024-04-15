@@ -4,8 +4,7 @@ import useDarkMode from "use-dark-mode";
 import './App.css'
 import ThemeSwitcher from "./components/ThemeSwitcher";
 import ChatbotContainer from "./components/ChatbotContainer";
-
-
+import { ChatHistoryContainer } from "./components/ChatHistoryContainer";
 
 
 
@@ -23,7 +22,12 @@ export default function App() {
       <h2 className="text-3xl font-bold center underline">
         Chat GPT Ascend
       </h2>
-      <ChatbotContainer darkMode={darkMode} />
+      <div className="grid grid-cols-4 gap-4 ">
+      <ChatHistoryContainer darkMode={darkMode}/>
+      <ChatbotContainer  darkMode={darkMode} />
+    
+      </div>
+   
     </main>
   );
 }

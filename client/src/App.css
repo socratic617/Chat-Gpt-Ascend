@@ -2,9 +2,11 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
+  height: 100vh;
   /* padding: 2rem; */
   text-align: center;
 }
+
 
 body.light-mode {
   background-color: #fff;
@@ -14,4 +16,9 @@ body.light-mode {
 body.dark-mode {
   background-color: #1a1919;
   color: #999;
+}
+
+.chat-history{
+  max-height: 42.55rem;
+  overflow-y: auto;
 }
