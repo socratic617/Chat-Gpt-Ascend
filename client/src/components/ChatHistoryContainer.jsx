@@ -189,8 +189,6 @@ export const ChatHistoryContainer = ({ darkMode }) => {
                             radius="sm"
                             src={write}
                             width={20}
-                            pagecolor="#ffffff"
-                            bordercolor="#ffffff"
                         />
                     </CardHeader>
                     <Divider />
@@ -290,7 +288,6 @@ export const ChatHistoryContainer = ({ darkMode }) => {
                             imgUser="https://i.pravatar.cc/150?u=a04258114e29026702d"
                             name="RC Student" />
                 </Card>
-
 
 
             </div>
