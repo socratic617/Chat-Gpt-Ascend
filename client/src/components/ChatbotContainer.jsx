@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Input, Button, Card, User, Textarea } from "@nextui-org/react";
+import { Card, User, Textarea } from "@nextui-org/react";
 import UserInput from "./UserInput";
 
 
