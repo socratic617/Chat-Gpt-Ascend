@@ -9,7 +9,7 @@ function UserCard(props) {
       const cardStyle = {
     
        
-        backgroundColor: "#fff",
+    
         padding: "10px 11px 10px 16px",
         borderRadius: "0px 0px 10px 0px",
         boxShadow: "2px 3px 5px black",
@@ -22,7 +22,7 @@ function UserCard(props) {
 
     
       const headingStyle = {
-        color: "#333",
+        
         fontSize: "px",
         margin: "5%, 10%, 5%, 5%",
         padding: "5%"
