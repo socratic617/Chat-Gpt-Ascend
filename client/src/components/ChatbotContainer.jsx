@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Input, Button, Card, User, Textarea } from "@nextui-org/react";
+import { Card, User, Textarea } from "@nextui-org/react";
+import UserInput from "./UserInput";
 
 
 export default function ChatbotContainer({ darkMode }) {
@@ -130,24 +131,10 @@ export default function ChatbotContainer({ darkMode }) {
             <div ref={messagesEndRef} />
           </div>
           {/* User input */}
-          <div>
-            <Input
-              className="pb-5 fullwidth"
-              type="text"
-              variant="bordered"
-              label="Insert Question Here:"
-              value={inputMessage}
-              onChange={handleInputChange}
-            />
-            <Button
-              fullWidth
-              className="mb-10 mt-5"
-              color="primary"
-              onClick={handleSubmit}
-            >
-              Submit
-            </Button>
-          </div>
+          <UserInput
+            inputMessage={inputMessage}
+            handleInputChange={(e) => setInputMessage(e.target.value)}
+          />
         </Card>
       </div>
     </div>
