@@ -1,0 +1,8 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`renders user card with name and image 1`] = `
+<UserCard
+  img="https://i.pravatar.cc/150?u=a04258114e29026702d"
+  name="Daniel Garcia"
+/>
+`;

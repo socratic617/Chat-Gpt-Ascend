@@ -3,7 +3,7 @@ import { Card, User, Textarea } from "@nextui-org/react";
 import UserInput from "./UserInput";
 
 
-export default function ChatbotContainer( { darkMode } ) {
+export default function ChatbotContainer({ darkMode }) {
   const [messages, setMessages] = useState([
     {
       author: "RC Student",
@@ -82,59 +82,75 @@ export default function ChatbotContainer( { darkMode } ) {
   };
 
   return (
-    <div className={`${darkMode.value ? "dark" : "light" }`}>
-      <Card className="pl-40 pr-40 mt-2">
-        <User
-          className="pb-5 pt-8"
-          name="RC Student"
-          description="Software Engineer"
-          avatarProps={{
-            src: "https://i.pravatar.cc/150?u=a04258114e29026702d"
-          }}
-        />
-        <div
-          className="messages-container mb-4 overflow-y-auto"
-          style={{ maxHeight: "25rem" }}
-          ref={messagesContainerRef} // Assign ref to the messages container
-        >
-          {/* Display messages */}
-          {messages.map((message, index) => (
-            <div key={index} className="message-container ">
-              <div
-                className={
-                  message.author === "Chatbot"
-                    ? "chatbot-message"
-                    : "user-message"
-                }
-              >
-                <Textarea
-                  className="pb-2 fullwidth"
-                  isReadOnly
-                  variant="bordered"
-                  value={message.content}
-                  label={message.author}
-                  color={message.author === 'RC Student' ? 'secondary' : 'primary'}
-                />
+    <div className="col-span-3">
+      <div className={`${darkMode.value ? "dark" : "light"}`}>
+        <Card className="pl-40 pr-40 mt-2">
+          <User
+            className="pb-5 pt-8"
+            name="RC Student"
+            description="Software Engineer"
+            avatarProps={{
+              src: "https://i.pravatar.cc/150?u=a04258114e29026702d"
+            }}
+          />
+          <div
+            className="messages-container mb-4 overflow-y-auto"
+            style={{ maxHeight: "25rem" }}
+            ref={messagesContainerRef} // Assign ref to the messages container
+          >
+            {/* Display messages */}
+            {messages.map((message, index) => (
+              <div key={index} className="message-container ">
+                <div
+                  className={
+                    message.author === "Chatbot"
+                      ? "chatbot-message"
+                      : "user-message"
+                  }
+                >
+                  <Textarea
+                    className="pb-2 fullwidth"
+                    isReadOnly
+                    variant="bordered"
+                    value={message.content}
+                    label={message.author}
+                    color={message.author === 'RC Student' ? 'secondary' : 'primary'}
+                  />
+                </div>
+                <p
+                  className={
+                    message.author === "Chatbot"
+                      ? "text-xs text-gray-500 text-left"
+                      : "text-xs text-gray-500 text-right"
+                  }
+                >
+                  {message.timestamp.toLocaleString()}
+                </p>
               </div>
-              <p
-                className={
-                  message.author === "Chatbot"
-                    ? "text-xs text-gray-500 text-left"
-                    : "text-xs text-gray-500 text-right"
-                }
-              >
-                {message.timestamp.toLocaleString()}
-              </p>
-            </div>
-          ))}
-          <div ref={messagesEndRef} />
-        </div>
-        {/* User input */}
-        <UserInput
-          inputMessage={inputMessage}
-          handleInputChange={(e) => setInputMessage(e.target.value)}
-        />
-      </Card>
+            ))}
+            <div ref={messagesEndRef} />
+          </div>
+          {/* User input */}
+          <div>
+            <Input
+              className="pb-5 fullwidth"
+              type="text"
+              variant="bordered"
+              label="Insert Question Here:"
+              value={inputMessage}
+              onChange={handleInputChange}
+            />
+            <Button
+              fullWidth
+              className="mb-10 mt-5"
+              color="primary"
+              onClick={handleSubmit}
+            >
+              Submit
+            </Button>
+          </div>
+        </Card>
+      </div>
     </div>
   );
 }
