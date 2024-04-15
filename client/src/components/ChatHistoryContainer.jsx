@@ -183,15 +183,15 @@ export const ChatHistoryContainer = ({ darkMode }) => {
                         <div className="flex flex-col w-2/3 text-left">
                             <h3>New Chat</h3>
                         </div>
-                            <Image
-                                alt="nextui logo"
-                                height={20}
-                                radius="sm"
-                                src={write}
-                                width={20}
-                                pagecolor="#ffffff"
-                                bordercolor="#ffffff"
-                            />
+                        <Image
+                            alt="nextui logo"
+                            height={20}
+                            radius="sm"
+                            src={write}
+                            width={20}
+                            pagecolor="#ffffff"
+                            bordercolor="#ffffff"
+                        />
                     </CardHeader>
                     <Divider />
                     <CardBody>
@@ -286,33 +286,15 @@ export const ChatHistoryContainer = ({ darkMode }) => {
                         </div>
                     </CardBody>
                     <Divider />
-                    <CardHeader className="flex gap-3 w-full">
-                        <User
-                            className="flex flex-row w-4/5 text-left"
-                            name="RC Student"
-                            description="Software Engineer"
-                            avatarProps={{
-                                src: "https://i.pravatar.cc/150?u=a04258114e29026702d"
-                            }}
-                        />
-                        <Image
-                            alt="nextui logo"
-                            height={20}
-                            radius="sm"
-                            src={settings}
-                            width={20}
-                        />
-
-                    </CardHeader>
-                    <UserCard  
-      imgUser="https://i.pravatar.cc/150?u=a04258114e29026702d"
-      name="RC Student"/>
+                    <UserCard
+                            imgUser="https://i.pravatar.cc/150?u=a04258114e29026702d"
+                            name="RC Student" />
                 </Card>
-                
-             
-              
+
+
+
             </div>
-           
+
         </div>
     )
 }
