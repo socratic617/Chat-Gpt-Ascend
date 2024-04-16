@@ -135,7 +135,8 @@ export default function ChatbotContainer({ darkMode }) {
           {/* User input */}
           <UserInput
             inputMessage={inputMessage}
-            handleInputChange={(e) => setInputMessage(e.target.value)}
+            handleInputChange={handleInputChange} //handles input from user
+            handleSubmit={handleSubmit} // handles when the user submits a message
           />
         </Card>
       </div>
