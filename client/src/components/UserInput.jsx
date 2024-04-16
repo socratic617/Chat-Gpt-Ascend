@@ -3,7 +3,7 @@ import { Textarea, Button } from '@nextui-org/react';
 
 export default function UserInput({ inputMessage, handleInputChange, handleSubmit}) {
     const buttonStyling = {
-        background: "rgb(237, 28, 36)",
+        background: "#ed1c24",
         fontFamily: "League Gothic",
         fontSize: "large",
         fontWeight: "400",
