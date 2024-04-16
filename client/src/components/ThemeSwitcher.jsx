@@ -4,7 +4,9 @@ import { MoonIconFilled, SunIconFilled, SunIconEmpty, MoonIconEmpty } from "./Da
 
 const ThemeSwitcher = ({ darkMode }) => {
 
-  // console.log(darkMode)
+  const buttonClass = darkMode.value ? "button-dark" : "button-light"
+  const darkClassName = `rounded-full border-solid border-1	border-gray-700 hover:border-gray-500 w-12 h-12 flex justify-center items-center p-2 ${buttonClass}`
+  const lightClassName= "rounded-full border-solid border-1	border-black hover:border-gray-500 w-12 h-12 flex justify-center items-center p-2"
 
   return (
     <>
@@ -13,7 +15,7 @@ const ThemeSwitcher = ({ darkMode }) => {
         <div className="flex w-max gap-4">
             <Button
               variant="text"
-              className="rounded-full border-solid border-1	border-gray-700 hover:border-gray-500 w-12 h-12 flex justify-center items-center p-2"
+              className={darkClassName}
               type="button"
               onClick={darkMode.disable}
             >
@@ -21,7 +23,7 @@ const ThemeSwitcher = ({ darkMode }) => {
             </Button>
           <Button 
           variant="text" 
-          className="rounded-full border-solid border-1	border-gray-700 hover:border-gray-500 w-12 h-12 flex justify-center items-center p-2" 
+          className={darkClassName}
           type="button" 
           onClick={darkMode.enable}
           >
@@ -31,8 +33,8 @@ const ThemeSwitcher = ({ darkMode }) => {
         :
         <div className="flex w-max gap-4">
           <Button 
-          variant="text" 
-          className="rounded-full border-solid border-1	border-black hover:border-gray-500 w-12 h-12 flex justify-center items-center p-2"
+          variant="text"
+          className={lightClassName}
           type="button" 
           onClick={darkMode.disable}
           >
@@ -40,7 +42,7 @@ const ThemeSwitcher = ({ darkMode }) => {
           </Button>
           <Button 
           variant="text" 
-          className="rounded-full border-solid border-1 border-black hover:border-gray-500 w-12 h-12 flex justify-center items-center p-2"
+          className={lightClassName}
           color="black" 
           type="button" 
           onClick={darkMode.enable}

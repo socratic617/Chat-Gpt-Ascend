@@ -84,7 +84,7 @@ export default function ChatbotContainer({ darkMode }) {
   return (
     <div className="col-span-3">
       <div className={`${darkMode.value ? "dark" : "light"}`}>
-        <Card className="pl-40 pr-40 mt-2">
+        <Card className="pl-40 pr-40 mt-2 chatbot-container">
           <User
             className="pb-5 pt-8"
             name="RC Student"
@@ -95,7 +95,7 @@ export default function ChatbotContainer({ darkMode }) {
           />
           <div
             className="messages-container mb-4 overflow-y-auto"
-            style={{ maxHeight: "25rem" }}
+            style={{ maxHeight: "30rem" }}
             ref={messagesContainerRef} // Assign ref to the messages container
           >
             {/* Display messages */}
@@ -115,6 +115,8 @@ export default function ChatbotContainer({ darkMode }) {
                     value={message.content}
                     label={message.author}
                     color={message.author === 'RC Student' ? 'secondary' : 'primary'}
+                    minRows={1}
+                    maxRows={2}
                   />
                 </div>
                 <p
