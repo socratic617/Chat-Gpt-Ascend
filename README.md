@@ -4,7 +4,10 @@
 ## Project Overview and Summary
 Chatbot Ascend is a project designed for students entering the Resilient Coder bootcamp with the aim of becoming full-stack engineers. The project focuses on creating a frontend AI chatbot.
 
+
 Chatbot Ascend aims to build a strong frontend AI chatbot by employing robust components, designing a user-friendly interface, ensuring reliability through unit tests, and offering comprehensive documentation.
+
+[View Hosted App here](https://resilient-coders-chatbot.netlify.app)
 
 ## Usage
 
