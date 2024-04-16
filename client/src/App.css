@@ -23,9 +23,13 @@ body.dark-mode {
   fill: #FFFFFF;
 }
 
-.chat-history{
-  height: auto;
+.chat-history, .chatbot-container{
+  height: 42.55rem;
   max-height: 42.55rem;
   overflow-y: auto;
 }
 
+.user-input-height{
+  height: 10rem;
+  margin-top: 1rem;
+}

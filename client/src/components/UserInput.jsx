@@ -4,25 +4,29 @@ import { Textarea, Button } from '@nextui-org/react';
 export default function UserInput({ inputMessage, handleInputChange, handleSubmit}) {
     const buttonStyling = {
         background: "rgb(237, 28, 36)",
-        fontWeight: "bold",
+        fontFamily: "League Gothic",
+        fontSize: "large",
+        fontWeight: "400",
+        letterSpacing: ".05rem",
         textTransform: "uppercase"
     }
     return (
-        <div>
+        <div className="user-input-height">
             <Textarea
-              className="pb-5 fullwidth"
+              className="pb-2 mb-1 fullwidth"
               label="Have a question?"
-              labelPlacement="outside"
+              labelPlacement="inside"
               placeholder="Message ResilientGPT..."
               value={inputMessage}
               onChange={handleInputChange}
-              rows={3}
+              minRows={2}
+              maxRows={2}
               variant="faded"  
             />
             <Button
                 style={buttonStyling}
                 fullWidth
-                className="mb-10 mt-5"
+                className="mb-2 mt-1"
                 color="primary"
                 onClick={handleSubmit}
             >
