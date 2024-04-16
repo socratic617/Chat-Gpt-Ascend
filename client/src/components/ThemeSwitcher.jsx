@@ -21,7 +21,6 @@ const ThemeSwitcher = ({ darkMode }) => {
               <SunIconFilled />
             </Button>
             <Button
-              data-testid="moonfilled"
               variant="text"
               className="rounded-full border-solid border-1	border-gray-700 hover:border-gray-500 w-12 h-12 flex justify-center items-center p-2"
               type="button"
@@ -33,7 +32,6 @@ const ThemeSwitcher = ({ darkMode }) => {
           :
           <div className="flex w-max gap-4">
             <Button
-              data-testid="sunempty"
               variant="text"
               className="rounded-full border-solid border-1	border-black hover:border-gray-500 w-12 h-12 flex justify-center items-center p-2"
               type="button"
@@ -42,7 +40,6 @@ const ThemeSwitcher = ({ darkMode }) => {
               <SunIconEmpty />
             </Button>
             <Button
-              data-testid="moonempty"
               variant="text"
               className="rounded-full border-solid border-1 border-black hover:border-gray-500 w-12 h-12 flex justify-center items-center p-2"
               color="black"
