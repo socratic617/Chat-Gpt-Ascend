@@ -14,7 +14,7 @@ export default function App() {
     global: window // Just pass this as a config option
   });
 
-  console.log(darkMode)
+  console.log("darkMode", darkMode)
 
   return (
     <div className={`${darkMode.value ? "dark" : "light"}`}>
