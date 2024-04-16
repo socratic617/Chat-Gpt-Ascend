@@ -36,6 +36,48 @@ To use ResilientGPT, follow these steps:
 1. Open a seperate terminal, while running application
 2. Run testing using (`npm test`)
 
+### Test Libraries Used
+
+- **@testing-library/react**: This library provides utilities for testing React components in a user-centric way.
+- **vitest**: A testing library (possibly custom) that offers functions like `describe`, `it`, `expect`, and `beforeEach` for structuring and defining test cases.
+  
+Here's a code snippet for the App testing component:
+  ```javascript
+import { render, screen } from '@testing-library/react'
+import { describe, it, beforeEach } from 'vitest'
+import App from '../src/App.jsx'
+
+// Before each test, mock the scrollIntoView method
+beforeEach(async () => {
+    window.HTMLElement.prototype.scrollIntoView = function() {};
+})
+
+// Describe and test the App component
+describe('App', () => {
+  it('renders the App component', () => {
+    // Render the App component
+    render(<App />)
+    
+    // Print the JSX structure to the command line for inspection
+    screen.debug();
+  })
+})
+```
+### Test Logic:
+
+- **Before Each Hook**:
+  - Modifies the `scrollIntoView` method before each test.
+
+- **Test Description**:
+  - Groups tests for the App component.
+  - Verifies that the App component renders correctly.
+
+- **Component Rendering**:
+  - Renders the App component.
+
+- **Debugging Output**:
+  - Prints the JSX structure for inspection.
+
 Here's a code snippet for the UserCard testing component:
 
 ```javascript
@@ -66,6 +108,81 @@ The test case is defined using the `test` function from `vitest`. It ensures tha
 
 **Snapshot Assertion**:
 - The test verifies that the rendered output of the `UserCard` component matches the previously stored snapshot. This ensures that the component's rendering remains consistent over time.
+
+
+Here's a code snippet for the ThemeSwitcher testing component:
+
+### Test Logic:
+
+```javascript
+import { render, fireEvent, screen } from '@testing-library/react';
+import { test, vi, expect } from 'vitest';
+import ThemeSwitcher from '../src/components/ThemeSwitcher';
+
+// Mock useDarkMode hook
+const useDarkModeMock = (initialValue) => {
+    let value = initialValue
+    return {
+        value: value,
+        enable: vi.fn(() => (value = true)),
+        disable: vi.fn(() => (value = false)),
+    };
+};
+
+// console.log('useDarkModeMock', useDarkModeMock())
+
+test('renders ThemeSwitcher component with light mode', () => {
+    const darkModeMock = useDarkModeMock(false);
+    // console.log('useDarkModeMock', darkModeMock)
+
+    render(<ThemeSwitcher darkMode={darkModeMock} />);
+    const sunIcon = screen.getByTestId('sunempty');
+    const moonIcon = screen.getByTestId('moonempty');
+
+    expect(sunIcon).toBeInTheDocument();
+    expect(moonIcon).toBeInTheDocument();
+
+    fireEvent.click(sunIcon);
+    expect(darkModeMock.disable).toHaveBeenCalled();
+
+    fireEvent.click(moonIcon);
+    expect(darkModeMock.enable).toHaveBeenCalled();
+});
+
+test('renders ThemeSwitcher component with dark mode', () => {
+    const darkModeMock = useDarkModeMock(true);
+    console.log('useDarkModeMock111', darkModeMock)
+    render(<ThemeSwitcher darkMode={darkModeMock} />);
+    const sunIcon = screen.getByTestId('sunfilled');
+    const moonIcon = screen.getByTestId('moonfilled');
+
+    expect(sunIcon).toBeInTheDocument();
+    expect(moonIcon).toBeInTheDocument();
+
+    fireEvent.click(sunIcon);
+    expect(darkModeMock.disable).toHaveBeenCalled();
+
+    fireEvent.click(moonIcon);
+    expect(darkModeMock.enable).toHaveBeenCalled();
+});
+
+```
+
+- **Mocking the useDarkMode Hook**:
+  - A mock function `useDarkModeMock` is created to simulate the behavior of the `useDarkMode` hook. It tracks the state of dark mode and provides functions to enable and disable it.
+
+- **Test Case 1: Light Mode**:
+  - Renders the `ThemeSwitcher` component with light mode.
+  - Verifies that the sun and moon icons are present.
+  - Simulates a click on the sun icon to disable dark mode and checks if the `disable` function of the mock hook is called.
+  - Simulates a click on the moon icon to enable dark mode and checks if the `enable` function of the mock hook is called.
+
+- **Test Case 2: Dark Mode**:
+  - Renders the `ThemeSwitcher` component with dark mode.
+  - Verifies that the sun and moon icons are present.
+  - Simulates a click on the sun icon to disable dark mode and checks if the `disable` function of the mock hook is called.
+  - Simulates a click on the moon icon to enable dark mode and checks if the `enable` function of the mock hook is called.
+
 
   
 
