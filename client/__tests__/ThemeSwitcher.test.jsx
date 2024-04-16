@@ -1,22 +1,50 @@
-import { expect, it, describe } from "vitest";
-import { renderHook } from '@testing-library/react-hooks'
-import useDarkMode from "use-dark-mode";
+import { render, fireEvent, screen } from '@testing-library/react';
+import { test, vi, expect } from 'vitest';
+import ThemeSwitcher from '../src/components/ThemeSwitcher';
 
+// Mock useDarkMode hook
+const useDarkModeMock = (initialValue) => {
+    let value = initialValue
+    return {
+        value: value,
+        enable: vi.fn(() => (value = true)),
+        disable: vi.fn(() => (value = false)),
+    };
+};
 
-beforeEach(async () => {
-    window.HTMLElement.prototype.scrollIntoView = function () { };
-})
+// console.log('useDarkModeMock', useDarkModeMock())
 
+test('renders ThemeSwitcher component with light mode', () => {
+    const darkModeMock = useDarkModeMock(false);
+    // console.log('useDarkModeMock', darkModeMock)
 
-describe('useDarkMode', () => {
-    it('should return a default search term and original items', () => {
-        // const items = [{ title: 'Star Wars' }];
+    render(<ThemeSwitcher darkMode={darkModeMock} />);
+    const sunIcon = screen.getByTestId('sunempty');
+    const moonIcon = screen.getByTestId('moonempty');
 
+    expect(sunIcon).toBeInTheDocument();
+    expect(moonIcon).toBeInTheDocument();
 
+    fireEvent.click(sunIcon);
+    expect(darkModeMock.disable).toHaveBeenCalled();
 
-        const { result } = renderHook(() => useDarkMode());
+    fireEvent.click(moonIcon);
+    expect(darkModeMock.enable).toHaveBeenCalled();
+});
 
-        // expect(result.current.searchTerm).toBe('');
-        // expect(result.current.filteredItems).toEqual(items);
-    });
+test('renders ThemeSwitcher component with dark mode', () => {
+    const darkModeMock = useDarkModeMock(true);
+    console.log('useDarkModeMock111', darkModeMock)
+    render(<ThemeSwitcher darkMode={darkModeMock} />);
+    const sunIcon = screen.getByTestId('sunfilled');
+    const moonIcon = screen.getByTestId('moonfilled');
+
+    expect(sunIcon).toBeInTheDocument();
+    expect(moonIcon).toBeInTheDocument();
+
+    fireEvent.click(sunIcon);
+    expect(darkModeMock.disable).toHaveBeenCalled();
+
+    fireEvent.click(moonIcon);
+    expect(darkModeMock.enable).toHaveBeenCalled();
 });
