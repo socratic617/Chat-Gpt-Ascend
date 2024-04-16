@@ -182,10 +182,103 @@ test('renders ThemeSwitcher component with dark mode', () => {
   - Verifies that the sun and moon icons are present.
   - Simulates a click on the sun icon to disable dark mode and checks if the `disable` function of the mock hook is called.
   - Simulates a click on the moon icon to enable dark mode and checks if the `enable` function of the mock hook is called.
-
-
+ 
   
+Here's a code snippet for the ChatHistory testing component:
 
+```javascript
+import { test, vi, expect } from 'vitest';
+import { render, screen } from '@testing-library/react';
+import { ChatHistoryContainer } from '../src/components/ChatHistoryContainer';
+
+const useDarkModeMock = (initialValue) => {
+    let value = initialValue
+    return {
+        value: value,
+        enable: vi.fn(() => (value = true)),
+        disable: vi.fn(() => (value = false)),
+    };
+};
+
+describe('ChatHistoryContainer', () => {
+    beforeEach(() => {
+        vi.spyOn(global.Math, 'random').mockReturnValue(0.8);
+    });
+
+    afterEach(() => {
+        vi.restoreAllMocks();
+    });
+
+    it('renders without crashing', () => {
+        // Mock darkMode prop
+        const darkMode = useDarkModeMock(false);
+        render(<ChatHistoryContainer darkMode={darkMode} />);
+        expect(screen.getByText('New Chat')).toBeInTheDocument();
+    });
+
+    it('renders messages for today', () => {
+        // Mock darkMode prop
+        const darkMode = useDarkModeMock(false);
+        render(<ChatHistoryContainer darkMode={darkMode} />);
+        expect(screen.getByText('Today')).toBeInTheDocument();
+      
+    });
+
+    it('renders messages for yesterday', () => {
+        // Mock darkMode prop
+        const darkMode = useDarkModeMock(false);
+        render(<ChatHistoryContainer darkMode={darkMode} />);
+        expect(screen.getByText('Yesterday')).toBeInTheDocument();
+    
+    });
+
+    it('renders messages for the past 7 days', () => {
+        // Mock darkMode prop
+        const darkMode = useDarkModeMock(false);
+        render(<ChatHistoryContainer darkMode={darkMode} />);
+        expect(screen.getByText('Past 7 Days')).toBeInTheDocument();
+   
+    });
+
+    it('renders messages for the past 30 days', () => {
+        // Mock darkMode prop
+        const darkMode = useDarkModeMock(false);
+        render(<ChatHistoryContainer darkMode={darkMode} />);
+        expect(screen.getByText('Past 30 Days')).toBeInTheDocument();
+       
+    });
+
+    it('renders messages for the past 90 days', () => {
+        // Mock darkMode prop
+        const darkMode = useDarkModeMock(false);
+        render(<ChatHistoryContainer darkMode={darkMode} />);
+        expect(screen.getByText('Past 90 Days')).toBeInTheDocument();
+      
+    });
+
+    it('renders user information', () => {
+        // Mock darkMode prop
+        const darkMode = useDarkModeMock(false);
+        render(<ChatHistoryContainer darkMode={darkMode} />);
+        // Assuming UserCard component renders the user information
+        expect(screen.getByText('Welcome, RC Student!')).toBeInTheDocument();
+    });
+});
+```
+### Test Logic
+
+- **Mocking the useDarkMode Hook**:
+  - A mock function `useDarkModeMock` is created to simulate the behavior of the `useDarkMode` hook. It tracks the state of dark mode and provides functions to enable and disable it.
+
+- **Setup and Teardown**:
+  - `beforeEach`: Sets up a spy on the `Math.random` function to consistently return a specific value (0.8) for each test.
+  - `afterEach`: Restores all mocked functions after each test to ensure clean state for subsequent tests.
+
+- **Test Cases**:
+  - Each test verifies specific behavior of the `ChatHistoryContainer` component under different conditions:
+    1. Renders the component without crashing and ensures certain elements are present.
+    2. Verifies that messages for today, yesterday, past 7 days, past 30 days, and past 90 days are displayed.
+    3. Checks if user information is rendered correctly.
 
 ## Preview:
 ![ResilientGpt-Cover](https://github.com/socratic617/Chat-Gpt-Ascend/assets/144078314/b6b90bf5-f393-492c-910e-5f3dabc7ae59)
