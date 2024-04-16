@@ -1,8 +1,8 @@
 
 #root {
   max-width: 1280px;
-  margin: 0 auto;
-  height: 100vh;
+  margin: auto;
+  min-height: 100vh;
   /* padding: 2rem; */
   text-align: center;
 }
@@ -18,20 +18,14 @@ body.dark-mode {
   color: #999;
 }
 
+.button-dark {
+  background-color: #18181b;
+  fill: #FFFFFF;
+}
+
 .chat-history{
+  height: auto;
   max-height: 42.55rem;
   overflow-y: auto;
 }
 
-/* Additonal SVG button Styling */
-
-.button-light {
-  background-color: #f9f9f9;
-  fill: #1D1D1B;
-}
-
-.button-dark {
-  background-color: #18181b;
-  box-shadow:#1D1D1B;
-  fill: #FFFFFF;
-}
