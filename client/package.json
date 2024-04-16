@@ -8,9 +8,9 @@
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "test": "vitest --environment jsdom",
+    "test": "vitest",
     "coverage": "vitest run --coverage",
-    "start": "npm run dev"
+    "start":"npm run dev"
   },
   "dependencies": {
     "@material-tailwind/react": "^2.1.9",
