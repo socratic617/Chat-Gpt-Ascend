@@ -17,7 +17,7 @@ export default function App() {
   return (
     <div className={`${darkMode.value ? "dark" : "light"}`}>
        <h2 className="text-3xl font-bold center p-7" style={{fontFamily: "League Gothic", letterSpacing: ".05rem", color: "#ed1c24"}}>
-        Chat GPT Ascend
+        RC AscendGPT
       </h2>
       <ThemeSwitcher darkMode={darkMode} />
       <div className="grid grid-cols-4 gap-4 ">
